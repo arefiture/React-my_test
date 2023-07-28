@@ -1,0 +1,10 @@
+.wallpaper_bg {
+    height: 150px;
+    overflow: hidden;
+}
+
+.wallpaper_bg img {
+    position: relative;
+    top: -275px;
+    width: 100%;
+}
