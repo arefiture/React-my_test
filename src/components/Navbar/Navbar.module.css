@@ -4,7 +4,12 @@
     padding: 5px 10px;
 }
 
-.item.active {
+.item a {
+    color: black;
+    text-decoration: none;
+}
+
+.item a.active {
     color: #686b6e;
     font-weight: bold;
 }

@@ -5,7 +5,7 @@ const Header = () => {
         <header className={class_header.header}>
             <img
                 src='https://starwars-galaxy.ru/800/600/http/koloro.ru/images/portfolio/globino-maslo/picture-splash-3.png'
-                alt='Фото пользователя'
+                alt='Иконка сайта'
             />
         </header>
     );

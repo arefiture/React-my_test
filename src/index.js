@@ -1,15 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './redux/state'
+import ReactDOM from "react-dom/client";
+import React from "react";
+import {BrowserRouter} from "react-router-dom";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export const renderEntireTree = (state) => {
+    root.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App appState={state}
+                     addPost={store.addPost.bind(store)}
+                     updateNewPostText={store.updateNewPostText.bind(store)}/>
+            </BrowserRouter>
+        </React.StrictMode>
+    );
+};
+
+renderEntireTree(store.getState());
+
+/*
+* Не забываем кидать render через callback, иначе мы не будем знать, какой render вызывать в state.js
+* */
+store.subscribe(renderEntireTree);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
