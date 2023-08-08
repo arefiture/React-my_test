@@ -1,14 +1,10 @@
 import class_dialogs from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
+import Messages from "./Messages/Messages";
 
 const Dialogs = (props) => {
-    let dialogElements = props.dialogState.dialogs.map(
+    let dialogElements = props.messagesPage.dialogs.map(
         dialog => <DialogItem id={dialog.id} name={dialog.name}/>
-    );
-
-    let messageElements = props.dialogState.messages.map(
-        message => <Message message={message.message}/>
     );
 
     return (
@@ -16,9 +12,9 @@ const Dialogs = (props) => {
             <div className={class_dialogs.dialogs_items}>
                 { dialogElements }
             </div>
-            <div className={class_dialogs.messages}>
-                { messageElements }
-            </div>
+            <Messages messagesPage={props.messagesPage}
+                      dispatch={props.dispatch}
+            />
         </div>
     );
 }

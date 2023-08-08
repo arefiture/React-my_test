@@ -1,4 +1,4 @@
-import class_music from './Music.module.css';
+/*import class_music from './Music.module.css';*/
 const Music = (props) => {
     return (
         <div>

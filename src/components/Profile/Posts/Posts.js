@@ -6,11 +6,10 @@ const Posts = (props) => {
     return (
         <div className={class_posts.posts}>
             <h3>My post</h3>
-            <NewPost addPost={props.addPost}
-                     updateNewPostText={props.updateNewPostText}
-                     newPostText={props.newPostText}
+            <NewPost dispatch={props.dispatch}
+                     newPostText={props.profilePage.newPostText}
             />
-            <PostsList postData={props.postData}/>
+            <PostsList posts={props.profilePage.posts}/>
         </div>
     );
 }

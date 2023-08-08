@@ -1,3 +1,6 @@
+import profileReducer from "./profileReducer";
+import messageReducer from "./messageReducer";
+
 let store = {
     _state: {
         profilePage: {
@@ -17,32 +20,24 @@ let store = {
             messages: [
                 {id: 1, message: 'Hi'},
                 {id: 2, message: 'How are You?'}
-            ]
+            ],
+            newMessageText: ''
         }
-    },
-    getState() {
-        return this._state;
     },
     _callSubscriber() {
         console.log("Please don't use me");
     },
-    addPost() {
-        let newPost = {
-            id: 3,
-            text: this._state.profilePage.newPostText,
-            likesCount: 0,
-            dislikesCount: 0
-        };
-        this._callSubscriber(this._state);
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-    },
-    updateNewPostText (newText)  {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+
+    dispatch(action) {
+        profileReducer(this._state.profilePage, action);
+        messageReducer(this._state.messagesPage, action);
+        this._callSubscriber(this._state);
     }
 };
 
