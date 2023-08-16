@@ -1,11 +1,16 @@
 import PostItem from './PostItem/PostItem';
 import class_posts_list from './PostsList.module.css';
 
-const PostsList = () => {
+const PostsList = (props) => {
+    let posts = props.store.getState().profilePage.posts;
+    let postElements = posts.map(
+        post =>
+            <PostItem text={post.text} likesCount={post.likesCount} dislikesCount={post.dislikesCount}/>
+    );
+
     return (
         <div className={class_posts_list.posts}>
-            <PostItem text='Hi, how are you?' likesCount='7'/>
-            <PostItem text='It`s my first post' likesCount='3'/>
+            {postElements}
         </div>
     );
 }

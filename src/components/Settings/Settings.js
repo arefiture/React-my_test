@@ -1,4 +1,4 @@
-import class_settings from './Settings.module.css';
+/*import class_settings from './Settings.module.css';*/
 const Settings = (props) => {
     return (
         <div>
