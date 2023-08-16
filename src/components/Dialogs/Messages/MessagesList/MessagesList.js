@@ -2,7 +2,8 @@ import MessageItem from "./MessageItem/MessageItem";
 import class_message_item from "./MessagesList.module.css";
 
 const MessagesList = (props) => {
-    let messageElements = props.messagesPage.messages.map(
+    let messages = props.store.getState().messagesPage.messages;
+    let messageElements = messages.map(
         message => <MessageItem message={message.message}/>
     );
 

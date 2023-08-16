@@ -1,15 +1,13 @@
-import NewPost from './NewPost/NewPost';
 import class_posts from './Posts.module.css';
 import PostsList from './PostsList/PostsList';
+import NewPostContainer from "./NewPost/NewPostContainer";
 
 const Posts = (props) => {
     return (
         <div className={class_posts.posts}>
             <h3>My post</h3>
-            <NewPost dispatch={props.dispatch}
-                     newPostText={props.profilePage.newPostText}
-            />
-            <PostsList posts={props.profilePage.posts}/>
+            <NewPostContainer store={props.store} />
+            <PostsList store={props.store} />
         </div>
     );
 }

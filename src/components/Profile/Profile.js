@@ -8,9 +8,7 @@ const Profile = (props) => {
         <div>
             <Wallpaper />
             <UserInfo />
-            <Posts profilePage={props.profilePage}
-                   dispatch={props.dispatch}
-            />
+            <Posts store={props.store} />
         </div>
     );
 }
